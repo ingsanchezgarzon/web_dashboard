@@ -1,0 +1,41 @@
+:root {
+  --accent-finance: #c9973a;
+  --accent-systems: #0f9488;
+  --accent-supply_chain: #b91c1c;
+  --accent-applied_ai: #4338ca;
+  --ink: #14151a;
+  --paper: #ffffff;
+  --hairline: #e2e2e6;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-feature-settings: 'ss01' 1;
+}
+
+.node-card {
+  transition: opacity 180ms ease, transform 180ms ease, border-color 180ms ease;
+}
+
+.node-card--dimmed {
+  opacity: 0.32;
+  filter: grayscale(0.4);
+}
+
+.chip {
+  transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
+}
+
+.drawer-enter {
+  animation: drawer-slide 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes drawer-slide {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
