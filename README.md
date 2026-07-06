@@ -1,7 +1,6 @@
 # AI Architecture Ecosystem — Interactive Hub
 
 A live, browsable map of a personal monorepo spanning finance simulation, project-management analytics, supply chain modeling, and applied AI/multi-agent research. This dashboard *is* the portfolio: instead of a static list of repos, it renders every project as a node in the pipeline that actually produced it.
-![Uploading Gemini_Generated_Image_aj5vlhaj5vlhaj5v.png…]()
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
