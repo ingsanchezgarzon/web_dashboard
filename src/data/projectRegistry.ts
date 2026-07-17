@@ -111,17 +111,17 @@ export const PROJECTS: ProjectNode[] = [
     maturityNote: 'Solo prompts de comportamiento definidos; sin motor de simulación ejecutable todavía.',
   },
   {
-    id: 'ledger-engine',
+    id: '360-invest-dashboard',
     domain: 'finance',
     step: 'analyze',
-    name: 'The Ledger Engine',
-    path: '01_investment_core/02_analyze',
+    name: '360 Invest Dashboard',
+    path: '01_investment_core/02_Analyse/360 Invest Dashboard',
     description:
-      'Libro Mayor centralizado: convierte storytelling financiero y logs crudos de los simuladores en balances analíticos limpios, listo para alimentar al NES.',
-    stack: ['Python', 'NES Core'],
-    status: 'planned',
-    progress: 5,
-    maturityNote: 'Carpeta aún no existe en el repo — solo definido conceptualmente en la arquitectura del dominio.',
+      'Dashboard que rastrea los índices bursátiles principales (S&P 500, NASDAQ 100, MSCI World, LQQ) y sus acciones motoras, enrutando cada idea de inversión hacia el wrapper fiscal francés óptimo (PEA/PEE/CTO).',
+    stack: ['Python', 'FastAPI', 'yfinance', 'Next.js', 'Tailwind', 'Docker'],
+    status: 'active',
+    progress: 70,
+    maturityNote: 'Backend y frontend completos, con Docker, hardening de seguridad y empaquetado móvil Android vía Capacitor.',
   },
   {
     id: 'agente-contenido',
@@ -135,6 +135,19 @@ export const PROJECTS: ProjectNode[] = [
     status: 'active',
     progress: 80,
     maturityNote: 'Pipeline de 5 agentes end-to-end con outputs ya generados y publicados (drafts + published/).',
+  },
+  {
+    id: 'agente-storytelling',
+    domain: 'finance',
+    step: 'publish',
+    name: 'Agente de Storytelling',
+    path: '01_investment_core/03_publish/agente_storytelling',
+    description:
+      'Pipeline de 6 agentes que investiga temas de finanzas personales, redacta artículos/guiones y genera prompts e imágenes para historias de Instagram dirigidas a expats en Francia.',
+    stack: ['Python', 'Anthropic SDK', 'Google GenAI', 'Tavily', 'Streamlit'],
+    status: 'active',
+    progress: 65,
+    maturityNote: 'App Streamlit funcional con historial de outputs generados; solapa parcialmente con el Content Pipeline.',
   },
   {
     id: 'historias-automatizadas',
@@ -174,6 +187,19 @@ export const PROJECTS: ProjectNode[] = [
     status: 'prototype',
     progress: 45,
     maturityNote: 'Comparte base de código con Conway 1v1; variante extendida aún sin analítica RTS diferenciada completa.',
+  },
+  {
+    id: 'civilization',
+    domain: 'systems',
+    step: 'simulate',
+    name: 'Economic Evolution — Civilization',
+    path: '02_pm_tower/01_simulate/Civilization',
+    description:
+      'Simulación de cuadrícula que combina un autómata celular con una economía multi-agente de cadena de suministro: trabajadores, producción y transporte evolucionando a través de 4 eras progresivas.',
+    stack: ['Vanilla JS', 'Canvas', 'Python', 'React (en curso)'],
+    status: 'active',
+    progress: 60,
+    maturityNote: 'Juego jugable con logs de simulación económica generados; migración de frontend a React todavía en desarrollo.',
   },
   {
     id: 'pm-control-tower',
@@ -255,6 +281,45 @@ export const PROJECTS: ProjectNode[] = [
   },
 
   // ---- Domain 4: Applied AI ----
+  {
+    id: 'mbti-agents',
+    domain: 'applied_ai',
+    step: 'simulate',
+    name: 'MBTI Agents — The Personality Table',
+    path: '04_nes_engine/01_Simulate/MBTI Agents',
+    description:
+      'Simulador donde 4 agentes con personalidades aleatorias (vector MBTI continuo + Teoría de Colores) negocian y completan una tarea colaborativa, generando logs estructurados para el motor NES.',
+    stack: ['JavaScript', 'Canvas', 'Node.js'],
+    status: 'prototype',
+    progress: 55,
+    maturityNote: 'Motor determinista con RNG sembrado y generación de datos batch funcional; precursor directo de civ-agent-sim.',
+  },
+  {
+    id: 'civ-agent-sim',
+    domain: 'applied_ai',
+    step: 'simulate',
+    name: 'Civ Agent Sim',
+    path: '04_nes_engine/01_Simulate/civ-agent-sim',
+    description:
+      'Simulación de dos capas: un mundo estilo Civilization habitado por agentes 8-bit con personalidad que discuten, deciden y actúan sobre misiones asignadas por el jugador, con diálogo opcional vía LLM (Claude/OpenAI).',
+    stack: ['Node.js', 'Express', 'Vanilla JS', 'Anthropic API', 'OpenAI API'],
+    status: 'active',
+    progress: 65,
+    maturityNote: 'Servidor Express funcional con modo offline y modo LLM opcional; evolución directa de MBTI Agents.',
+  },
+  {
+    id: 'fractal-to-ai',
+    domain: 'applied_ai',
+    step: 'simulate',
+    name: 'Fractal to AI — FractalMind',
+    path: '04_nes_engine/01_Simulate/Fractal to AI',
+    description:
+      'Simulador/juego educativo que visualiza arquitecturas de IA fractal en Canvas y SVG, pensado para ejecutarse como artifact interactivo de Claude.',
+    stack: ['React', 'TypeScript', 'esbuild'],
+    status: 'prototype',
+    progress: 35,
+    maturityNote: 'Código fuente completo con build configurado, pero sigue en fase exploratoria/conceptual.',
+  },
   {
     id: 'thesis-brain',
     domain: 'applied_ai',

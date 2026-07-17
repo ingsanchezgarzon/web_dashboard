@@ -1,9 +1,11 @@
+import { useState } from 'react';
 import { DOMAINS } from '../data/projectRegistry';
 import type { DomainFilter } from '../contexts/DomainContext';
 import { useDomain } from '../contexts/DomainContext';
 
 export function TopNav() {
   const { activeDomain, setActiveDomain } = useDomain();
+  const [showRefreshHint, setShowRefreshHint] = useState(false);
 
   const chips: { id: DomainFilter; label: string; accentHex?: string }[] = [
     { id: 'all', label: 'ALL' },
@@ -19,10 +21,23 @@ export function TopNav() {
             AI ARCHITECTURE ECOSYSTEM <span className="text-neutral-400 font-normal">— Interactive Hub</span>
           </h1>
         </div>
-        <button className="text-[11px] font-mono tracking-wide border border-neutral-300 px-3 py-1.5 text-neutral-500 hover:border-neutral-500 hover:text-neutral-900">
-          CONFIG / DEPLOY
-        </button>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => setShowRefreshHint((v) => !v)}
+            className="text-[11px] font-mono tracking-wide border border-neutral-300 px-3 py-1.5 text-neutral-500 hover:border-neutral-500 hover:text-neutral-900"
+          >
+            REFRESH
+          </button>
+          <button className="text-[11px] font-mono tracking-wide border border-neutral-300 px-3 py-1.5 text-neutral-500 hover:border-neutral-500 hover:text-neutral-900">
+            CONFIG / DEPLOY
+          </button>
+        </div>
       </div>
+      {showRefreshHint && (
+        <div className="px-5 py-2.5 border-b border-[var(--hairline)] bg-neutral-50 text-[11px] font-mono text-neutral-600">
+          This dashboard is static — run <code className="text-neutral-900">/update-registry</code> in Claude Code to sync it with your project files.
+        </div>
+      )}
       <div className="flex items-center gap-2 px-5 py-2.5 overflow-x-auto">
         {chips.map((chip) => {
           const active = activeDomain === chip.id;
